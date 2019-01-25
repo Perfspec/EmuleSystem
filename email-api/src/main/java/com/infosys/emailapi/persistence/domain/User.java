@@ -23,10 +23,10 @@ public class User {
 	
 	public User() {}
 
-	public User(String username, String password, boolean active) {
+	public User(String username, String password) {
 		this.username = username;
 		this.password = password;
-		this.active = active;
+		this.active = Constant.USER_CONSTRUCTOR_ACTIVE_DEFAULT;
 	}
 
 	public String getUsername() {
