@@ -14,7 +14,7 @@ import com.infosys.emailapi.persistence.repository.UserRepository;
 
 @Service
 @Transactional(value=TxType.SUPPORTS)
-public class UserService {
+public class UserService implements UserServicible {
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -25,6 +25,9 @@ public class UserService {
 		this.userRepository = userRepository;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.infosys.emailapi.service.UserServicible#login(java.lang.String, java.lang.String)
+	 */
 	public String login(String username, String password) {
 		Optional<User> userOpt = userRepository.findById(username);
 		if(userOpt.isPresent()) {
@@ -44,6 +47,9 @@ public class UserService {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.infosys.emailapi.service.UserServicible#createUser(java.lang.String, java.lang.String)
+	 */
 	@Transactional(value=TxType.REQUIRED)
 	public String createUser(String username, String password) {
 		if(userRepository.existsById(username)) {

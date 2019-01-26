@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>com.infosys</groupId>
 	<artifactId>email-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>email-api</name>
 	<description>The back end server for a mulesoft middleware client. This api will work with a mySQL database with two tables: emails and users.</description>
 

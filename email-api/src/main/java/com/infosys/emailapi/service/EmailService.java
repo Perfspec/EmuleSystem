@@ -16,7 +16,7 @@ import com.infosys.emailapi.persistence.repository.EmailRepository;
 
 @Service
 @Transactional(value=TxType.SUPPORTS)
-public class EmailService {
+public class EmailService implements EmailServicible {
 	
 	@Autowired
 	private EmailRepository emailRepository;
@@ -27,10 +27,16 @@ public class EmailService {
 		this.emailRepository=emailRepository;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.infosys.emailapi.service.EmailServicible#getByUsername(java.lang.String)
+	 */
 	public List<Email> getByUsername(String username) {
 		return emailRepository.getByUsername(username);
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.infosys.emailapi.service.EmailServicible#deleteEmail(java.lang.Long)
+	 */
 	@Transactional(value=TxType.REQUIRED)
 	public String deleteEmail(Long id) {
 		Optional<Email> optEmail = emailRepository.findById(id);
@@ -49,6 +55,9 @@ public class EmailService {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.infosys.emailapi.service.EmailServicible#composeEmail(com.infosys.emailapi.persistence.domain.User, com.infosys.emailapi.persistence.domain.User, java.lang.String, java.lang.String)
+	 */
 	@Transactional(value=TxType.REQUIRED)
 	public String composeEmail(User fromUser, User toUser, String subject, String body) {
 		if(anyNull(fromUser, toUser, subject, body)) {

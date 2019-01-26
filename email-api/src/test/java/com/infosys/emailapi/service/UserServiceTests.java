@@ -15,7 +15,7 @@ import com.infosys.emailapi.persistence.repository.UserRepository;
 
 public class UserServiceTests {
 	
-	private UserService userService;
+	private UserServicible userService;
 	
 	private UserRepository mockRepo;
 	

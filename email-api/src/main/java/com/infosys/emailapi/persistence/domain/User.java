@@ -40,14 +40,6 @@ public class User {
 	public boolean isActive() {
 		return active;
 	}
-	
-	public String getActiveStatus( ) {
-		if(active) {
-			return Constant.YES;
-		} else {
-			return Constant.NO;
-		}
-	}
 
 	public void setUsername(String username) {
 		this.username = username;
